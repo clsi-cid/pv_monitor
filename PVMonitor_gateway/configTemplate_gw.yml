@@ -1,0 +1,20 @@
+###Config file for PV Monitor Isolated version###
+
+###Network Config###
+HOST_NAME:
+  GatewaySearcherHost:
+
+GatewaySearcher_ADDRESS:
+  IP_Addr:
+  BCAST_Addr:
+
+# TO_CLIENT_PROD = 5071
+# TO_CLIENT_TEST = 5072
+
+# TO_GATEWAY_PROD = 5075
+# TO_GATEWAY_TEST = 5080
+PORT:
+  TO_CLIENT_PORT:
+  TO_GATEWAY_PORT:
+
+HOSTNAME_IPS:

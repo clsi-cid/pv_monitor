@@ -1,0 +1,27 @@
+__pycache__
+
+*.pyc
+*.pdf
+Lockfile.*
+
+password.py
+ca_proto_search_bytes.py
+tags
+tools/*.json
+linuxmon_pvs.json
+# config*.yml
+
+# Dev artifacts
+
+.vscode
+2to3
+doxybuild
+tmp
+*.swp
+.nfs*
+.idea/*
+pvmon_logs/
+PVMonitor_gateway/pvmon_gateway_logs/
+data/*
+junk
+doxybuild/*

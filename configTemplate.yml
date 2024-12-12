@@ -1,0 +1,51 @@
+### Template Config file ###
+
+###Network Config###
+HOST_NAME:
+  PVMonitorHost:
+  GatewaySearcherHost:
+  CAINFOHost:
+
+GatewaySearcher_ADDRESS:
+  IP_Addr: []
+  BCAST_Addr: []
+
+DB:
+  DB_Server:
+  DB_User: 
+  DB_Name:
+
+PORT:
+  HTTP_PORT: 5073
+  TO_CLIENT_PORT: 5072
+  TO_GATEWAY_PORT: 5080
+
+HOSTNAME_IPS:
+  VM_ARCHIVER_02: []
+
+FILE_SAVE_INTERVAL:
+  SECONDS: 0
+  MINUTES: 0
+  HOURS: 4
+  DAYS: 0
+
+# Linux monitors older than this will not be polled
+MAX_LINUXMON_AGE:
+  SECONDS: 0
+  MINUTES: 0
+  HOURS: 0
+  DAYS: 365
+
+# PVs older than this will be purged
+PV_PURGE_AGE:
+  SECONDS: 0
+  MINUTES: 0
+  HOURS: 0
+  DAYS: 365
+
+# Hostname cache expiration time
+MAX_HOST_AGE:
+  SECONDS: 0
+  MINUTES: 0
+  HOURS: 1
+  DAYS: 0
