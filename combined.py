@@ -3248,9 +3248,22 @@ class MyApp(bottle.Bottle):
         if repo == None:
             repo_str = "Git info is not available"
         else:
-            repo_str = "<b>Git Remote URL:</b> %s<br>" % repo.remotes.origin.url
-            + "<b>Git Branch:</b> %s<br>" % repo.active_branch.name
-            + "<b>Git Commit Hash:</b> %s<br>" % repo.head.commit.hexsha
+            try:
+                remote_url = repo.remotes.origin.url
+            except:
+                remote_url = "None"
+            try:
+                branch_name = repo.active_branch.name
+            except:
+                branch_name = "None"
+            try:
+                commit = repo.head.commit.hexsha
+            except:
+                commit = "None"
+            repo_str = ("<b>Git Remote URL:</b> %s<br>" % remote_url
+            + "<b>Git Branch:</b> %s<br>" % branch_name
+            + "<b>Git Commit Hash:</b> %s<br>" % commit
+            )
 
         page += (
             "%s<br>\n" % self.make_link("/admin/threads", threads)

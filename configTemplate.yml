@@ -12,7 +12,7 @@ GatewaySearcher_ADDRESS:
 
 DB:
   DB_Server:
-  DB_User: 
+  DB_User:
   DB_Name:
 
 PORT:
