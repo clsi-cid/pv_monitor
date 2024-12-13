@@ -52,7 +52,12 @@ from utilities.utils import (beacon_estimated_age_str, get_ip_addr,
 log = logging.getLogger("PVMLogger")
 
 deploy_dir = os.getcwd()
-repo = git.Repo(deploy_dir)
+
+try:
+    repo = git.Repo(deploy_dir)
+except Exception as err:
+    log.warning(repr(err))
+    repo = None
 
 STATS = StatisticsManager()
 
@@ -3239,6 +3244,13 @@ class MyApp(bottle.Bottle):
             threads = "Threads"
 
         pid_list = self._dataman.get_pids()
+        
+        if repo == None:
+            repo_str = "Git info is not available"
+        else:
+            repo_str = "<b>Git Remote URL:</b> %s<br>" % repo.remotes.origin.url
+            + "<b>Git Branch:</b> %s<br>" % repo.active_branch.name
+            + "<b>Git Commit Hash:</b> %s<br>" % repo.head.commit.hexsha
 
         page += (
             "%s<br>\n" % self.make_link("/admin/threads", threads)
@@ -3264,9 +3276,7 @@ class MyApp(bottle.Bottle):
             + "<b>Gateway Client:</b> %s<br>" % repr(pid_list[2])
             + "<h2>Deployment/Git:</h2>"
             + "<b>Deployment Directory:</b> %s<br>" % deploy_dir
-            + "<b>Git Remote URL:</b> %s<br>" % repo.remotes.origin.url
-            + "<b>Git Branch:</b> %s<br>" % repo.active_branch.name
-            + "<b>Git Commit Hash:</b> %s<br>" % repo.head.commit.hexsha
+            + repo_str
             + "</body></html>"
         )
 
