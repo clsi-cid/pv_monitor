@@ -476,7 +476,7 @@ class EPICS(object):
     DONT_REPLY = 5
     CA_CLIENT_MINOR_PROT_VER = 11
     HDR_LEN = 16
-    MAX_HEARTBEAT_AGE = 65  # This allows us 1 missed heartbeat
+    MAX_HEARTBEAT_AGE = 100  # This allows us 1 missed heartbeat
     MAX_SEQ = 0xFFFF
 
 
